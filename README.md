@@ -47,7 +47,7 @@ go get -u github.com/gorilla/mux
 Let's start registering a couple of URL paths and handlers:
 
 ```go
-// ctx:{repo}/examples/mux.go
+// context:{repo}/examples/mux.go
 func main() {
     r := mux.NewRouter()
     r.HandleFunc("/", HomeHandler)
