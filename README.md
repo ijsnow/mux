@@ -13,24 +13,24 @@ their respective handler.
 
 The name mux stands for "HTTP request multiplexer". Like the standard `http.ServeMux`, `mux.Router` matches incoming requests against a list of registered routes and calls a handler for the route that matches the URL or other conditions. The main features are:
 
-* It implements the `http.Handler` interface so it is compatible with the standard `http.ServeMux`.
-* Requests can be matched based on URL host, path, path prefix, schemes, header and query values, HTTP methods or using custom matchers.
-* URL hosts, paths and query values can have variables with an optional regular expression.
-* Registered URLs can be built, or "reversed", which helps maintaining references to resources.
-* Routes can be used as subrouters: nested routes are only tested if the parent route matches. This is useful to define groups of routes that share common conditions like a host, a path prefix or other repeated attributes. As a bonus, this optimizes request matching.
+- It implements the `http.Handler` interface so it is compatible with the standard `http.ServeMux`.
+- Requests can be matched based on URL host, path, path prefix, schemes, header and query values, HTTP methods or using custom matchers.
+- URL hosts, paths and query values can have variables with an optional regular expression.
+- Registered URLs can be built, or "reversed", which helps maintaining references to resources.
+- Routes can be used as subrouters: nested routes are only tested if the parent route matches. This is useful to define groups of routes that share common conditions like a host, a path prefix or other repeated attributes. As a bonus, this optimizes request matching.
 
 ---
 
-* [Install](#install)
-* [Examples](#examples)
-* [Matching Routes](#matching-routes)
-* [Static Files](#static-files)
-* [Registered URLs](#registered-urls)
-* [Walking Routes](#walking-routes)
-* [Graceful Shutdown](#graceful-shutdown)
-* [Middleware](#middleware)
-* [Testing Handlers](#testing-handlers)
-* [Full Example](#full-example)
+- [Install](#install)
+- [Examples](#examples)
+- [Matching Routes](#matching-routes)
+- [Static Files](#static-files)
+- [Registered URLs](#registered-urls)
+- [Walking Routes](#walking-routes)
+- [Graceful Shutdown](#graceful-shutdown)
+- [Middleware](#middleware)
+- [Testing Handlers](#testing-handlers)
+- [Full Example](#full-example)
 
 ---
 
@@ -47,7 +47,7 @@ go get -u github.com/gorilla/mux
 Let's start registering a couple of URL paths and handlers:
 
 ```go
-// context:examples/mux.go#L8
+// context:examples/mux.go#L9
 func main() {
     r := mux.NewRouter()
     r.HandleFunc("/", HomeHandler)
@@ -180,7 +180,6 @@ s.HandleFunc("/{key}/", ProductHandler)
 // "/products/{key}/details"
 s.HandleFunc("/{key}/details", ProductDetailsHandler)
 ```
-
 
 ### Static Files
 
@@ -602,7 +601,7 @@ func TestMetricsHandler(t *testing.T) {
         }
 
         rr := httptest.NewRecorder()
-	
+
 	// Need to create a router that we can pass the request through so that the vars will be added to the context
 	router := mux.NewRouter()
         router.HandleFunc("/metrics/{type}", MetricsHandler)
