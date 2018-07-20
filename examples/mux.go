@@ -6,7 +6,7 @@ import (
 	"github.com/ijsnow/mux"
 )
 
-// context:examples/mux.go#L8
+// context:examples/mux.go#L9
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", HomeHandler)
